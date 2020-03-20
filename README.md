@@ -1,1 +1,1 @@
-# JSONCodables
+# COVID-Tracker-iOS
