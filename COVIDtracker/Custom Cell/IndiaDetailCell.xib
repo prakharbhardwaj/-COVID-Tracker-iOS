@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Rounded-Medium.otf">
+            <string>SFCompactRounded-Medium</string>
+        </array>
+        <array key="SF-Compact-Rounded-Regular.otf">
+            <string>SFCompactRounded-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IndiaDetailCell" rowHeight="120" id="tGu-6v-cU6" customClass="IndiaDetailCell" customModule="COVID_Tracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tGu-6v-cU6" id="gmd-47-ZJt">
+                <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8k-7C-yYX">
+                        <rect key="frame" x="0.0" y="11" width="374" height="39"/>
+                        <fontDescription key="fontDescription" name="SFCompactRounded-Medium" family="SF Compact Rounded" pointSize="28"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoP-fP-fFn">
+                        <rect key="frame" x="25" y="65" width="88" height="45"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtC-Z3-eAk">
+                                <rect key="frame" x="39.5" y="2" width="9.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="rbD-6V-4xA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cases" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khZ-Ch-jVy">
+                                <rect key="frame" x="20" y="23.5" width="48" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="Er0-uL-7Ic"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Medium" family="SF Compact Rounded" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="khZ-Ch-jVy" secondAttribute="bottom" constant="1" id="5dU-o2-2Ra"/>
+                            <constraint firstAttribute="height" constant="45" id="7IA-kG-5oD"/>
+                            <constraint firstItem="wtC-Z3-eAk" firstAttribute="centerX" secondItem="GoP-fP-fFn" secondAttribute="centerX" id="8Rs-RR-hIq"/>
+                            <constraint firstItem="khZ-Ch-jVy" firstAttribute="centerX" secondItem="GoP-fP-fFn" secondAttribute="centerX" id="edH-z1-zht"/>
+                            <constraint firstItem="wtC-Z3-eAk" firstAttribute="top" secondItem="GoP-fP-fFn" secondAttribute="top" constant="2" id="qLu-wq-AzU"/>
+                            <constraint firstAttribute="width" constant="88" id="zpg-Is-6EK"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUO-lq-l46">
+                        <rect key="frame" x="261" y="65" width="88" height="45"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1I-tn-vNc">
+                                <rect key="frame" x="39.5" y="2" width="9.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="UpC-zp-rJc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recovers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlV-B9-Ac6">
+                                <rect key="frame" x="10.5" y="23.5" width="67.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="77f-nk-vqO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Medium" family="SF Compact Rounded" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="4xs-KR-udw"/>
+                            <constraint firstAttribute="width" constant="88" id="Q9R-bT-BcW"/>
+                            <constraint firstItem="p1I-tn-vNc" firstAttribute="top" secondItem="jUO-lq-l46" secondAttribute="top" constant="2" id="Uar-nt-cnc"/>
+                            <constraint firstAttribute="bottom" secondItem="hlV-B9-Ac6" secondAttribute="bottom" constant="1" id="fph-4D-NNs"/>
+                            <constraint firstItem="p1I-tn-vNc" firstAttribute="centerX" secondItem="jUO-lq-l46" secondAttribute="centerX" id="gqd-UR-FvY"/>
+                            <constraint firstItem="hlV-B9-Ac6" firstAttribute="centerX" secondItem="jUO-lq-l46" secondAttribute="centerX" id="pav-Tg-x6k"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWV-7W-ozO">
+                        <rect key="frame" x="143" y="65" width="88" height="45"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jai-NP-XMw">
+                                <rect key="frame" x="39.5" y="2" width="9.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="KUW-yz-K9m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deaths" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2u-mx-HQ9">
+                                <rect key="frame" x="17" y="24.5" width="54" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="3Xl-zC-5PM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Medium" family="SF Compact Rounded" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jai-NP-XMw" firstAttribute="centerX" secondItem="gWV-7W-ozO" secondAttribute="centerX" id="O0u-dv-Epw"/>
+                            <constraint firstAttribute="bottom" secondItem="I2u-mx-HQ9" secondAttribute="bottom" id="hnh-kh-U4U"/>
+                            <constraint firstAttribute="width" constant="88" id="leI-ck-CKC"/>
+                            <constraint firstItem="jai-NP-XMw" firstAttribute="top" secondItem="gWV-7W-ozO" secondAttribute="top" constant="2" id="qF9-wf-xFQ"/>
+                            <constraint firstAttribute="height" constant="45" id="uOU-4Q-kPh"/>
+                            <constraint firstItem="I2u-mx-HQ9" firstAttribute="centerX" secondItem="gWV-7W-ozO" secondAttribute="centerX" id="xfZ-1s-bWl"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="jUO-lq-l46" firstAttribute="leading" secondItem="gWV-7W-ozO" secondAttribute="trailing" constant="30" id="39j-R5-5rm"/>
+                    <constraint firstAttribute="bottom" secondItem="jUO-lq-l46" secondAttribute="bottom" constant="10" id="56s-Ht-Ajw"/>
+                    <constraint firstItem="GoP-fP-fFn" firstAttribute="top" secondItem="jUO-lq-l46" secondAttribute="top" id="5fd-Te-YUE"/>
+                    <constraint firstAttribute="trailing" secondItem="Z8k-7C-yYX" secondAttribute="trailing" id="ARK-qv-Mhu"/>
+                    <constraint firstAttribute="bottom" secondItem="GoP-fP-fFn" secondAttribute="bottom" constant="10" id="Htn-ZG-oa2"/>
+                    <constraint firstItem="gWV-7W-ozO" firstAttribute="top" secondItem="Z8k-7C-yYX" secondAttribute="bottom" constant="15" id="RJx-9u-iRW"/>
+                    <constraint firstItem="Z8k-7C-yYX" firstAttribute="leading" secondItem="gmd-47-ZJt" secondAttribute="leading" id="Vrs-tI-Fqj"/>
+                    <constraint firstItem="jUO-lq-l46" firstAttribute="top" secondItem="gWV-7W-ozO" secondAttribute="top" id="cvB-Um-6um"/>
+                    <constraint firstItem="gWV-7W-ozO" firstAttribute="leading" secondItem="GoP-fP-fFn" secondAttribute="trailing" constant="30" id="dzB-Zm-Mof"/>
+                    <constraint firstItem="gWV-7W-ozO" firstAttribute="bottom" secondItem="gmd-47-ZJt" secondAttribute="bottomMargin" constant="1" id="k6K-A4-UhK"/>
+                    <constraint firstItem="Z8k-7C-yYX" firstAttribute="centerX" secondItem="gmd-47-ZJt" secondAttribute="centerX" id="lej-ea-f47"/>
+                    <constraint firstItem="gWV-7W-ozO" firstAttribute="centerX" secondItem="Z8k-7C-yYX" secondAttribute="centerX" id="mho-ga-dnM"/>
+                    <constraint firstItem="Z8k-7C-yYX" firstAttribute="top" secondItem="gmd-47-ZJt" secondAttribute="top" constant="11" id="yQ2-Hy-V5z"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cases" destination="wtC-Z3-eAk" id="fih-Hh-T7M"/>
+                <outlet property="country" destination="Z8k-7C-yYX" id="Ghc-2n-OhT"/>
+                <outlet property="death" destination="jai-NP-XMw" id="13d-5B-q8Y"/>
+                <outlet property="recovery" destination="p1I-tn-vNc" id="ZXA-Y7-WSM"/>
+            </connections>
+            <point key="canvasLocation" x="-649.27536231884062" y="187.5"/>
+        </tableViewCell>
+    </objects>
+</document>
