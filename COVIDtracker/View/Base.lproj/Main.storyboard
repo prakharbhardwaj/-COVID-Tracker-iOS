@@ -32,8 +32,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3fs-jC-LZb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iqC-Hd-dOn">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="iqC-Hd-dOn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -57,6 +57,12 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzh-yd-cLr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <connections>
+                                    <action selector="dismissScreen:" destination="Vbd-2T-vJp" eventType="touchUpInside" id="V0W-yI-W14"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4xG-48-rKM">
                                 <rect key="frame" x="27.5" y="300.5" width="359" height="339.5"/>
                                 <subviews>
@@ -254,10 +260,14 @@
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Lzh-yd-cLr" firstAttribute="top" secondItem="d6w-QU-ZkE" secondAttribute="top" id="2Xh-Na-ID3"/>
+                            <constraint firstItem="Lzh-yd-cLr" firstAttribute="leading" secondItem="d6w-QU-ZkE" secondAttribute="leading" id="4wh-aO-4V2"/>
                             <constraint firstItem="4xG-48-rKM" firstAttribute="leading" secondItem="8Da-iV-U3g" secondAttribute="leading" constant="27.5" id="790-h8-Q3U"/>
                             <constraint firstItem="4xG-48-rKM" firstAttribute="centerX" secondItem="d6w-QU-ZkE" secondAttribute="centerX" id="A2C-yD-N8S"/>
                             <constraint firstItem="d6w-QU-ZkE" firstAttribute="top" secondItem="8Da-iV-U3g" secondAttribute="top" id="SKr-NP-UJj"/>
+                            <constraint firstItem="Lzh-yd-cLr" firstAttribute="trailing" secondItem="d6w-QU-ZkE" secondAttribute="trailing" id="VmV-Su-MHw"/>
                             <constraint firstItem="d6w-QU-ZkE" firstAttribute="leading" secondItem="8Da-iV-U3g" secondAttribute="leading" id="Wfe-js-IS8"/>
+                            <constraint firstItem="Lzh-yd-cLr" firstAttribute="bottom" secondItem="d6w-QU-ZkE" secondAttribute="bottom" id="aLQ-wH-RGG"/>
                             <constraint firstItem="4xG-48-rKM" firstAttribute="centerY" secondItem="d6w-QU-ZkE" secondAttribute="centerY" id="cYZ-49-vIG"/>
                             <constraint firstItem="d6w-QU-ZkE" firstAttribute="trailing" secondItem="8Da-iV-U3g" secondAttribute="trailing" id="fPl-zn-PJj"/>
                             <constraint firstAttribute="bottom" secondItem="d6w-QU-ZkE" secondAttribute="bottom" id="qIx-k4-Lnh"/>
