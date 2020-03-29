@@ -11,6 +11,10 @@
 		F510F18524224195006A628F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F510F18424224195006A628F /* Default-568h@2x.png */; };
 		F510F1872423FAC2006A628F /* IndiaDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F510F1862423FAC2006A628F /* IndiaDetailCell.xib */; };
 		F510F1892423FAE1006A628F /* IndiaDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510F1882423FAE1006A628F /* IndiaDetailCell.swift */; };
+		F55AB79C242FF1C2000291D8 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AB79B242FF1C2000291D8 /* Countries.swift */; };
+		F55AB79E242FF31F000291D8 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AB79D242FF31F000291D8 /* SearchTableViewController.swift */; };
+		F55AB7A02430B996000291D8 /* CountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AB79F2430B996000291D8 /* CountryTableViewController.swift */; };
+		F55AB7A42430C488000291D8 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AB7A32430C488000291D8 /* CountryData.swift */; };
 		F59D38E823980FC0008016B7 /* PetitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F59D38E723980FC0008016B7 /* PetitionTableViewCell.xib */; };
 		F59D38EA239A3F98008016B7 /* PetitionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59D38E9239A3F98008016B7 /* PetitionDetailViewController.swift */; };
 		F5EE04EF237EBD0E00CF73F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EE04EE237EBD0E00CF73F2 /* AppDelegate.swift */; };
@@ -30,6 +34,10 @@
 		F510F18424224195006A628F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F510F1862423FAC2006A628F /* IndiaDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndiaDetailCell.xib; sourceTree = "<group>"; };
 		F510F1882423FAE1006A628F /* IndiaDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaDetailCell.swift; sourceTree = "<group>"; };
+		F55AB79B242FF1C2000291D8 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		F55AB79D242FF31F000291D8 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		F55AB79F2430B996000291D8 /* CountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewController.swift; sourceTree = "<group>"; };
+		F55AB7A32430C488000291D8 /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
 		F59D38E723980FC0008016B7 /* PetitionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetitionTableViewCell.xib; sourceTree = "<group>"; };
 		F59D38E9239A3F98008016B7 /* PetitionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitionDetailViewController.swift; sourceTree = "<group>"; };
 		F5EE04EB237EBD0E00CF73F2 /* COVID Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +86,8 @@
 			children = (
 				F5EE0504237EBDC200CF73F2 /* PetitionModel.swift */,
 				F5EE04F0237EBD0E00CF73F2 /* SceneDelegate.swift */,
+				F55AB79B242FF1C2000291D8 /* Countries.swift */,
+				F55AB7A32430C488000291D8 /* CountryData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,6 +105,8 @@
 			children = (
 				F59D38E9239A3F98008016B7 /* PetitionDetailViewController.swift */,
 				F5EE0502237EBDAD00CF73F2 /* PetitionTableViewController.swift */,
+				F55AB79D242FF31F000291D8 /* SearchTableViewController.swift */,
+				F55AB79F2430B996000291D8 /* CountryTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -263,12 +275,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55AB7A02430B996000291D8 /* CountryTableViewController.swift in Sources */,
 				F510F1892423FAE1006A628F /* IndiaDetailCell.swift in Sources */,
+				F55AB79E242FF31F000291D8 /* SearchTableViewController.swift in Sources */,
 				F5EE04EF237EBD0E00CF73F2 /* AppDelegate.swift in Sources */,
+				F55AB7A42430C488000291D8 /* CountryData.swift in Sources */,
 				F5EE04F1237EBD0E00CF73F2 /* SceneDelegate.swift in Sources */,
 				F5EE0503237EBDAD00CF73F2 /* PetitionTableViewController.swift in Sources */,
 				F5EE0505237EBDC200CF73F2 /* PetitionModel.swift in Sources */,
 				F5EE0507237EC65C00CF73F2 /* PetitionTableViewCell.swift in Sources */,
+				F55AB79C242FF1C2000291D8 /* Countries.swift in Sources */,
 				F59D38EA239A3F98008016B7 /* PetitionDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

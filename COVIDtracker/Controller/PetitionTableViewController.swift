@@ -10,13 +10,14 @@ import UIKit
 import MBProgressHUD
 
 class PetitionTableViewController: UITableViewController {
-        
+    
+    var lastUpdate = Int(Date().timeIntervalSince1970)
+    var now = Int(Date().timeIntervalSince1970)
     var petetions = CovidData()
     var firstSection = CovidData()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var sorting = "cases"
     var buttonChecked: ButtonChecked = .first
-    let searchController = UISearchController(searchResultsController: nil)
     
     enum ButtonChecked {
         case first
@@ -28,7 +29,7 @@ class PetitionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let refreshBtn = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshDb))
+        let refreshBtn = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshNavDb))
         
         let sortBtn = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down.circle"), landscapeImagePhone: UIImage(systemName: "arrow.up.arrow.down.circle"), style: .plain, target: self, action: #selector(sortButton))
         
@@ -45,7 +46,6 @@ class PetitionTableViewController: UITableViewController {
     func loading(){
         DispatchQueue.main.async {
             self.appDelegate.showProcessingIndicatorOnView(vwBg: self.view, title: "")
-            self.searchController.isActive = false
             self.tableView.isUserInteractionEnabled = false
         }
     }
@@ -65,7 +65,24 @@ class PetitionTableViewController: UITableViewController {
     }
     
     @objc func refreshDb(){
+        now = Int(Date().timeIntervalSince1970)
+        if (now - lastUpdate >= 600){
+            DispatchQueue.main.async {
+                self.lastUpdate = self.now
+                print(self.now)
+                print(self.lastUpdate)
+                self.generateSession()
+            }
+        }else{
+            print("Do nothing")
+        }
+    }
+    
+    @objc func refreshNavDb(){
+        
         DispatchQueue.main.async {
+            self.now = Int(Date().timeIntervalSince1970)
+            self.lastUpdate = self.now
             self.generateSession()
         }
     }
@@ -209,6 +226,8 @@ class PetitionTableViewController: UITableViewController {
         self.loading()
         self.petetions.removeAll()
         self.firstSection.removeAll()
+        self.now = Int(Date().timeIntervalSince1970)
+        self.lastUpdate = self.now
         
         let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/sort?sortby=\(self.sorting)"
         let urlPath = URL(string: urlString)!
@@ -233,11 +252,7 @@ class PetitionTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if searchController.isActive {
-            return 1
-        } else {
-            return 2
-        }
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -254,57 +269,51 @@ class PetitionTableViewController: UITableViewController {
         
         let petitionIndex = petetions[indexPath.row]
         
-        if searchController.isActive {
+        if(indexPath.section == 0) {
+            cellIn.country.text = firstSection[indexPath.row].country
+            cellIn.death.text = firstSection[indexPath.row].totalDeaths
+            cellIn.cases.text = firstSection[indexPath.row].totalCases
+            cellIn.recovery.text = firstSection[indexPath.row].totalRecovered
+            cellIn.newCases.text = firstSection[indexPath.row].newCases
+            cellIn.newDeath.text = firstSection[indexPath.row].newDeaths
+            return cellIn
+        } else {
             cell.country.text = petitionIndex.country
             cell.death.text = petitionIndex.totalDeaths
             cell.cases.text = petitionIndex.totalCases
             cell.recovery.text = petitionIndex.totalRecovered
-            cellIn.isHidden = true
+            cell.newCases.text = petitionIndex.newCases
+            cell.newDeath.text = petitionIndex.newDeaths
             return cell
-        }else{
-            if(indexPath.section == 0) {
-                cellIn.country.text = firstSection[indexPath.row].country
-                cellIn.death.text = firstSection[indexPath.row].totalDeaths
-                cellIn.cases.text = firstSection[indexPath.row].totalCases
-                cellIn.recovery.text = firstSection[indexPath.row].totalRecovered
-                return cellIn
-            } else {
-                cell.country.text = petitionIndex.country
-                cell.death.text = petitionIndex.totalDeaths
-                cell.cases.text = petitionIndex.totalCases
-                cell.recovery.text = petitionIndex.totalRecovered
-                return cell
-            }
-            
         }
         
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(identifier: "PetitionDetailViewController") as! PetitionDetailViewController
-
-            if(indexPath.section == 0) {
-                let inIndex = firstSection[indexPath.row]
-                vc._country = inIndex.country
-                vc._totalCases = inIndex.totalCases
-                vc._newCases = inIndex.newCases
-                vc._totalDeaths = inIndex.totalDeaths
-                vc._newDeaths = inIndex.newDeaths
-                vc._totalRecovered = inIndex.totalRecovered
-                vc._activeCases = inIndex.activeCases
-                vc._seriousCritical = inIndex.seriousCritical
-                
-            } else{
-                let petitionIndex = petetions[indexPath.row]
-                vc._country = petitionIndex.country
-                vc._totalCases = petitionIndex.totalCases
-                vc._newCases = petitionIndex.newCases
-                vc._totalDeaths = petitionIndex.totalDeaths
-                vc._newDeaths = petitionIndex.newDeaths
-                vc._totalRecovered = petitionIndex.totalRecovered
-                vc._activeCases = petitionIndex.activeCases
-                vc._seriousCritical = petitionIndex.seriousCritical
-            }
+        
+        if(indexPath.section == 0) {
+            let inIndex = firstSection[indexPath.row]
+            vc._country = inIndex.country
+            vc._totalCases = inIndex.totalCases
+            vc._newCases = inIndex.newCases
+            vc._totalDeaths = inIndex.totalDeaths
+            vc._newDeaths = inIndex.newDeaths
+            vc._totalRecovered = inIndex.totalRecovered
+            vc._activeCases = inIndex.activeCases
+            vc._seriousCritical = inIndex.seriousCritical
+            
+        } else{
+            let petitionIndex = petetions[indexPath.row]
+            vc._country = petitionIndex.country
+            vc._totalCases = petitionIndex.totalCases
+            vc._newCases = petitionIndex.newCases
+            vc._totalDeaths = petitionIndex.totalDeaths
+            vc._newDeaths = petitionIndex.newDeaths
+            vc._totalRecovered = petitionIndex.totalRecovered
+            vc._activeCases = petitionIndex.activeCases
+            vc._seriousCritical = petitionIndex.seriousCritical
+        }
         
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: false, completion: nil)

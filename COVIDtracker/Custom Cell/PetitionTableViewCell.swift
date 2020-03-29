@@ -14,10 +14,12 @@ class PetitionTableViewCell: UITableViewCell {
     @IBOutlet weak var death: UILabel!
     @IBOutlet weak var cases: UILabel!
     @IBOutlet weak var recovery: UILabel!
+    @IBOutlet weak var newDeath: UILabel!
+    @IBOutlet weak var newCases: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectedBackgroundView?.isHidden = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

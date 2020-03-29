@@ -22,10 +22,20 @@
                                     <constraint firstAttribute="height" constant="240" id="poe-ki-80D"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by Prakhar Bhardwaj " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsC-8G-sPj">
+                                <rect key="frame" x="87" y="797.5" width="240" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="OsC-8G-sPj" firstAttribute="leading" secondItem="5Yb-I7-JxF" secondAttribute="leading" id="5nR-Vp-r8g"/>
+                            <constraint firstItem="OsC-8G-sPj" firstAttribute="trailing" secondItem="5Yb-I7-JxF" secondAttribute="trailing" id="Ail-UP-NSz"/>
                             <constraint firstItem="5Yb-I7-JxF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CJl-IB-Eqk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OsC-8G-sPj" secondAttribute="bottom" constant="50" id="eWS-Yo-lqc"/>
+                            <constraint firstItem="OsC-8G-sPj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qRP-j3-UoE"/>
                             <constraint firstItem="5Yb-I7-JxF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="s2I-kq-maI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
