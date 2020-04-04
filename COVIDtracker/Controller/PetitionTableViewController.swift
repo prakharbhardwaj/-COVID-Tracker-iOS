@@ -152,7 +152,7 @@ class PetitionTableViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.petetions = jsonResult as? CovidData ?? []
                     let inIndex = self.petetions.firstIndex{$0.country == "India"}
-                    let totIndex = self.petetions.firstIndex{$0.country == "Total:"}
+                    let totIndex = self.petetions.firstIndex{$0.country == "World"}
                     self.firstSection.append(self.petetions[totIndex!])
                     self.firstSection.append(self.petetions[inIndex!])
                     print(self.firstSection)
@@ -203,7 +203,7 @@ class PetitionTableViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.petetions = jsonResult as? CovidData ?? []
                     let inIndex = self.petetions.firstIndex{$0.country == "India"}
-                    let totIndex = self.petetions.firstIndex{$0.country == "Total:"}
+                    let totIndex = self.petetions.firstIndex{$0.country == "World"}
                     self.firstSection.append(self.petetions[totIndex!])
                     self.firstSection.append(self.petetions[inIndex!])
                     print(self.firstSection)
@@ -315,7 +315,7 @@ class PetitionTableViewController: UITableViewController {
             vc._seriousCritical = petitionIndex.seriousCritical
         }
         
-        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: false, completion: nil)
     }
     

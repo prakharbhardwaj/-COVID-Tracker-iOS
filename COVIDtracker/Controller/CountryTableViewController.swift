@@ -108,7 +108,12 @@ class CountryTableViewController: UITableViewController {
         self.countryData.removeAll()
         
         let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/search?country=\(_country)"
-        let urlPath = URL(string: urlString)!
+        
+        guard let _urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return
+        }
+        
+        let urlPath = URL(string: _urlString)!
         let urlRequest = URLRequest(url: urlPath)
         
         let task = URLSession.shared.dataTask(with: urlRequest) { (data, _, err) in
