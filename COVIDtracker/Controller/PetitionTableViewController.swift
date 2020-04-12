@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 class PetitionTableViewController: UITableViewController {
     
@@ -15,9 +14,10 @@ class PetitionTableViewController: UITableViewController {
     var now = Int(Date().timeIntervalSince1970)
     var petetions = CovidData()
     var firstSection = CovidData()
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var sorting = "cases"
     var buttonChecked: ButtonChecked = .first
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .medium)
+    var dateString = ""
     
     enum ButtonChecked {
         case first
@@ -45,14 +45,19 @@ class PetitionTableViewController: UITableViewController {
     
     func loading(){
         DispatchQueue.main.async {
-            self.appDelegate.showProcessingIndicatorOnView(vwBg: self.view, title: "")
-            self.tableView.isUserInteractionEnabled = false
+            let refreshBarButton: UIBarButtonItem = UIBarButtonItem(customView: self.activityIndicator)
+            self.navigationItem.rightBarButtonItem = refreshBarButton
+            self.navigationItem.title = "Loading..."
+            self.activityIndicator.startAnimating()
         }
     }
     
     func stopLoading(){
         DispatchQueue.main.async {
-            self.appDelegate.hideProcessingIndicatorFromView(vwBg: self.view)
+            self.navigationItem.title = "COVID-19"
+            self.activityIndicator.stopAnimating()
+            let refreshBtn = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(self.refreshNavDb))
+            self.navigationItem.rightBarButtonItems = [refreshBtn]
             self.tableView.isUserInteractionEnabled = true
         }
     }
@@ -150,6 +155,10 @@ class PetitionTableViewController: UITableViewController {
             switch res {
             case .success(let jsonResult):
                 DispatchQueue.main.async {
+                    self.getCurrTime()
+                    self.tableView.isUserInteractionEnabled = false
+                    self.petetions.removeAll()
+                    self.firstSection.removeAll()
                     self.petetions = jsonResult as? CovidData ?? []
                     let inIndex = self.petetions.firstIndex{$0.country == "India"}
                     let totIndex = self.petetions.firstIndex{$0.country == "World"}
@@ -173,8 +182,6 @@ class PetitionTableViewController: UITableViewController {
     
     func getdataApi(completion: @escaping (Result<Any, Error>) -> Void) {
         self.loading()
-        self.petetions.removeAll()
-        self.firstSection.removeAll()
         
         let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19"
         let urlPath = URL(string: urlString)!
@@ -201,6 +208,10 @@ class PetitionTableViewController: UITableViewController {
             switch res {
             case .success(let jsonResult):
                 DispatchQueue.main.async {
+                    self.getCurrTime()
+                    self.tableView.isUserInteractionEnabled = false
+                    self.petetions.removeAll()
+                    self.firstSection.removeAll()
                     self.petetions = jsonResult as? CovidData ?? []
                     let inIndex = self.petetions.firstIndex{$0.country == "India"}
                     let totIndex = self.petetions.firstIndex{$0.country == "World"}
@@ -224,8 +235,6 @@ class PetitionTableViewController: UITableViewController {
     
     func getSortDataApi(completion: @escaping (Result<Any, Error>) -> Void) {
         self.loading()
-        self.petetions.removeAll()
-        self.firstSection.removeAll()
         self.now = Int(Date().timeIntervalSince1970)
         self.lastUpdate = self.now
         
@@ -247,6 +256,13 @@ class PetitionTableViewController: UITableViewController {
                 completion(.failure(jsonError))
             }        }
         task.resume()
+    }
+    
+    func getCurrTime(){
+        let dateFormatter : DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MMM-dd HH:mm:ss"
+        let date = Date()
+        dateString = "Last Update: \(dateFormatter.string(from: date))"
     }
     
     // MARK: - Table view data source
@@ -321,15 +337,9 @@ class PetitionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        let dateFormatter : DateFormatter = DateFormatter()
-        //  dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.dateFormat = "yyyy-MMM-dd HH:mm:ss"
-        let date = Date()
-        let dateString = dateFormatter.string(from: date)
-        
         //Put the Last Update detail on the second section:
         if section == 1 {
-            return "Last Update: \(dateString)"
+            return dateString
         }
         
         return ""
