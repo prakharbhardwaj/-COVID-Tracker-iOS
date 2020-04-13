@@ -11,6 +11,8 @@
 		F510F18524224195006A628F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F510F18424224195006A628F /* Default-568h@2x.png */; };
 		F510F1872423FAC2006A628F /* IndiaDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F510F1862423FAC2006A628F /* IndiaDetailCell.xib */; };
 		F510F1892423FAE1006A628F /* IndiaDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F510F1882423FAE1006A628F /* IndiaDetailCell.swift */; };
+		F53B87EB2444555D00330305 /* IndiaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53B87EA2444555D00330305 /* IndiaTableViewController.swift */; };
+		F53B87ED24445B3800330305 /* StateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53B87EC24445B3800330305 /* StateData.swift */; };
 		F55AB79C242FF1C2000291D8 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AB79B242FF1C2000291D8 /* Countries.swift */; };
 		F55AB79E242FF31F000291D8 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AB79D242FF31F000291D8 /* SearchTableViewController.swift */; };
 		F55AB7A02430B996000291D8 /* CountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AB79F2430B996000291D8 /* CountryTableViewController.swift */; };
@@ -34,6 +36,8 @@
 		F510F18424224195006A628F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F510F1862423FAC2006A628F /* IndiaDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndiaDetailCell.xib; sourceTree = "<group>"; };
 		F510F1882423FAE1006A628F /* IndiaDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaDetailCell.swift; sourceTree = "<group>"; };
+		F53B87EA2444555D00330305 /* IndiaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaTableViewController.swift; sourceTree = "<group>"; };
+		F53B87EC24445B3800330305 /* StateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateData.swift; sourceTree = "<group>"; };
 		F55AB79B242FF1C2000291D8 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		F55AB79D242FF31F000291D8 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		F55AB79F2430B996000291D8 /* CountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				F5EE04F0237EBD0E00CF73F2 /* SceneDelegate.swift */,
 				F55AB79B242FF1C2000291D8 /* Countries.swift */,
 				F55AB7A32430C488000291D8 /* CountryData.swift */,
+				F53B87EC24445B3800330305 /* StateData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 				F5EE0502237EBDAD00CF73F2 /* PetitionTableViewController.swift */,
 				F55AB79D242FF31F000291D8 /* SearchTableViewController.swift */,
 				F55AB79F2430B996000291D8 /* CountryTableViewController.swift */,
+				F53B87EA2444555D00330305 /* IndiaTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,9 +282,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F55AB7A02430B996000291D8 /* CountryTableViewController.swift in Sources */,
+				F53B87EB2444555D00330305 /* IndiaTableViewController.swift in Sources */,
 				F510F1892423FAE1006A628F /* IndiaDetailCell.swift in Sources */,
 				F55AB79E242FF31F000291D8 /* SearchTableViewController.swift in Sources */,
 				F5EE04EF237EBD0E00CF73F2 /* AppDelegate.swift in Sources */,
+				F53B87ED24445B3800330305 /* StateData.swift in Sources */,
 				F55AB7A42430C488000291D8 /* CountryData.swift in Sources */,
 				F5EE04F1237EBD0E00CF73F2 /* SceneDelegate.swift in Sources */,
 				F5EE0503237EBDAD00CF73F2 /* PetitionTableViewController.swift in Sources */,

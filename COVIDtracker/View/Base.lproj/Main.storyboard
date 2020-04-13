@@ -56,6 +56,35 @@
             </objects>
             <point key="canvasLocation" x="215.94202898550725" y="326.78571428571428"/>
         </scene>
+        <!--India-->
+        <scene sceneID="5OB-Rx-mgy">
+            <objects>
+                <tableViewController id="ttO-Ib-sWU" customClass="IndiaTableViewController" customModule="COVID_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="3Qk-Bk-kgh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xPW-mK-1Nx">
+                                <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xPW-mK-1Nx" id="q6T-wj-mBG">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ttO-Ib-sWU" id="5K4-qX-wVw"/>
+                            <outlet property="delegate" destination="ttO-Ib-sWU" id="kYi-4x-GhY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="India" id="i6g-Z2-70z"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XEK-O8-OaD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="216" y="1042"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kOR-Su-Hs9">
             <objects>
@@ -67,6 +96,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="3fs-jC-LZb" kind="relationship" relationship="viewControllers" id="2MM-Oe-qDh"/>
+                        <segue destination="yla-eU-YjQ" kind="relationship" relationship="viewControllers" id="Idr-cK-vKY"/>
                         <segue destination="mwR-5u-OqJ" kind="relationship" relationship="viewControllers" id="hP1-lx-U6Z"/>
                     </connections>
                 </tabBarController>
@@ -78,7 +108,7 @@
         <scene sceneID="y3i-Wb-9SP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3fs-jC-LZb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Covid Data" image="rectangle.grid.2x2.fill" catalog="system" landscapeImage="rectangle.grid.2x2.fill" id="U6D-mz-Axj"/>
+                    <tabBarItem key="tabBarItem" title="Covid Data" image="circle.grid.2x2.fill" catalog="system" landscapeImage="circle.grid.2x2.fill" id="U6D-mz-Axj"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="vQa-vM-6eH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="iqC-Hd-dOn">
@@ -712,10 +742,31 @@
             </objects>
             <point key="canvasLocation" x="1257.9710144927537" y="326.78571428571428"/>
         </scene>
+        <!--India-->
+        <scene sceneID="mPH-ni-aWj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="dark" id="yla-eU-YjQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="India" image="india-port" landscapeImage="india-land" id="P7D-gl-uCd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Btq-tA-RTj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ttO-Ib-sWU" kind="relationship" relationship="rootViewController" id="HJm-FF-gn6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WA3-J6-mAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1010" y="1042"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="circle.grid.2x2.fill" catalog="system" width="64" height="56"/>
+        <image name="india-land" width="18" height="18"/>
+        <image name="india-port" width="25" height="25"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
-        <image name="rectangle.grid.2x2.fill" catalog="system" width="64" height="48"/>
         <image name="xmark" catalog="system" width="64" height="56"/>
     </resources>
 </document>
