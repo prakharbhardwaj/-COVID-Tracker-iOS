@@ -16,6 +16,7 @@ class PetitionTableViewCell: UITableViewCell {
     @IBOutlet weak var recovery: UILabel!
     @IBOutlet weak var newDeath: UILabel!
     @IBOutlet weak var newCases: UILabel!
+    @IBOutlet weak var newRecovery: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

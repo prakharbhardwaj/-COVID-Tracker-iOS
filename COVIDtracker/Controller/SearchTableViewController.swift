@@ -27,6 +27,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         super.viewDidLoad()
         
         resultSearchController.searchResultsUpdater = self
+        resultSearchController.searchBar.placeholder = "Search Country, State and City"
         resultSearchController.searchBar.searchBarStyle = .minimal
         resultSearchController.hidesNavigationBarDuringPresentation = false
         resultSearchController.obscuresBackgroundDuringPresentation = false
@@ -51,18 +52,33 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.font = .boldSystemFont(ofSize: 30)
-        cell.textLabel?.text = filteredTableData[indexPath.row]
+        cell.textLabel?.font = .boldSystemFont(ofSize: 25)
+        cell.textLabel?.text = String(filteredTableData[indexPath.row].split(separator: ",")[0])
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let inIndex = self.filteredTableData[indexPath.row]
-
+        let arr = filteredTableData[indexPath.row].split(separator: ",")
+        let inIndex = String(arr[safe: 0] ?? "nil")
+        let indexClass = String(arr[safe: 1] ?? "nil")
+        var indexType = ""
+        
+        if (indexClass == "nil"){
+            indexType = "WD"
+        }else if (indexClass == "India"){
+            indexType = "IN"
+        }else{
+            indexType = "ST"
+        }
+        
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "CountryTableViewController") as! CountryTableViewController
+        
         vc._country = inIndex
+        vc._state = indexClass
+        vc._qryType = indexType
+        
         self.navigationController!.pushViewController(vc, animated: true)
     }
     

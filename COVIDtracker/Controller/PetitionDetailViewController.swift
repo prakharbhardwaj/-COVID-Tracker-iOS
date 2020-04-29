@@ -9,7 +9,7 @@
 import UIKit
 
 class PetitionDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var country: UILabel!
     @IBOutlet weak var totalCases: UILabel!
     @IBOutlet weak var newCases: UILabel!
@@ -19,18 +19,18 @@ class PetitionDetailViewController: UIViewController {
     @IBOutlet weak var activeCases: UILabel!
     @IBOutlet weak var seriousCritical: UILabel!
     
-   var _country: String = "-"
-   var _totalCases: String = "-"
-   var _newCases: String = "-"
-   var _totalDeaths: String = "-"
-   var _newDeaths: String = "-"
-   var _totalRecovered: String = "-"
-   var _activeCases: String = "-"
-   var _seriousCritical: String = "-"
+    var _country: String = "-"
+    var _totalCases: String = "-"
+    var _newCases: String = "-"
+    var _totalDeaths: String = "-"
+    var _newDeaths: String = "-"
+    var _totalRecovered: String = "-"
+    var _activeCases: String = "-"
+    var _seriousCritical: String = "-"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.country.text = _country
         self.totalCases.text = _totalCases
         self.newCases.text = _newCases

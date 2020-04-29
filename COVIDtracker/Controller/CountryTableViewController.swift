@@ -16,6 +16,7 @@ class CountryTableViewController: UITableViewController {
     @IBOutlet weak var newDeaths: UILabel!
     @IBOutlet weak var totalRecovered: UILabel!
     @IBOutlet weak var activeCases: UILabel!
+    @IBOutlet weak var newRecovered: UILabel!
     
     var countryData = [CountryData]()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -27,6 +28,9 @@ class CountryTableViewController: UITableViewController {
     var _newDeaths: String = "-"
     var _totalRecovered: String = "-"
     var _activeCases: String = "-"
+    var _newRecovered: String = "-"
+    var _state: String = ""
+    var _qryType: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,27 +71,15 @@ class CountryTableViewController: UITableViewController {
                     self._newDeaths = self.countryData[0].newDeaths
                     self._totalRecovered = self.countryData[0].totalRecovered
                     self._activeCases = self.countryData[0].activeCases
+                    self._newRecovered = self.countryData[0].newRecovered
                     
-                    if(self._totalCases.isEmpty){
-                        self._totalCases = "0"
-                    } else if(self._newCases.isEmpty){
-                        self._newCases = "0"
-                    } else if (self._totalDeaths.isEmpty){
-                        self._totalDeaths = "0"
-                    } else if (self._newDeaths.isEmpty){
-                        self._newDeaths = "0"
-                    } else if (self._totalRecovered.isEmpty){
-                        self._totalRecovered = "0"
-                    } else if (self._activeCases.isEmpty){
-                        self._activeCases = "0"
-                    }
-                    
-                    self.totalCases.text = self._totalCases
-                    self.newCases.text = self._newCases
-                    self.totalDeaths.text = self._totalDeaths
-                    self.newDeaths.text = self._newDeaths
-                    self.totalRecovered.text = self._totalRecovered
-                    self.activeCases.text = self._activeCases
+                    self.totalCases.text = self._totalCases.strZero()
+                    self.newCases.text = self._newCases.strZero()
+                    self.totalDeaths.text = self._totalDeaths.strZero()
+                    self.newDeaths.text = self._newDeaths.strZero()
+                    self.totalRecovered.text = self._totalRecovered.strZero()
+                    self.activeCases.text = self._activeCases.strZero()
+                    self.newRecovered.text = self._newRecovered.strZero()
                     self.tableView.reloadData()
                     self.stopLoading()
                 }
@@ -107,11 +99,13 @@ class CountryTableViewController: UITableViewController {
         self.loading()
         self.countryData.removeAll()
         
-        let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/search?country=\(_country)"
+        let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/v2/search?country=\(_country)&state=\(_state)&type=\(_qryType)"
         
         guard let _urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return
         }
+        
+        print(urlString)
         
         let urlPath = URL(string: _urlString)!
         let urlRequest = URLRequest(url: urlPath)

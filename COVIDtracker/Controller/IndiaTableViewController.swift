@@ -113,7 +113,7 @@ class IndiaTableViewController: UITableViewController {
     func getdataApi(completion: @escaping (Result<Any, Error>) -> Void) {
         self.loading()
         
-        let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/statewise"
+        let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/v2/statewise"
         let urlPath = URL(string: urlString)!
         let urlRequest = URLRequest(url: urlPath)
         
@@ -175,37 +175,41 @@ class IndiaTableViewController: UITableViewController {
         
         
         if(indexPath.section == 0) {
-            if (firstIndex.newCases == "+0" || firstIndex.newDeaths == "+0"){
+            if (firstIndex.newCases == "+0" && firstIndex.newDeaths == "+0" && firstIndex.newRecovered == "+0"){
                 cellIn.country.text = firstIndex.state
                 cellIn.death.text = firstIndex.totalDeaths
                 cellIn.cases.text = firstIndex.totalCases
                 cellIn.recovery.text = firstIndex.totalRecovered
                 cellIn.newCases.text = ""
                 cellIn.newDeath.text = ""
+                cellIn.newRecovery.text = ""
             }else{
                 cellIn.country.text = firstIndex.state
                 cellIn.death.text = firstIndex.totalDeaths
                 cellIn.cases.text = firstIndex.totalCases
                 cellIn.recovery.text = firstIndex.totalRecovered
-                cellIn.newCases.text = firstIndex.newCases
-                cellIn.newDeath.text = firstIndex.newDeaths
+                cellIn.newCases.text = firstIndex.newCases.strZero()
+                cellIn.newDeath.text = firstIndex.newDeaths.strZero()
+                cellIn.newRecovery.text = firstIndex.newRecovered.strZero()
             }
             return cellIn
         } else {
-            if (stateIndex.newCases == "+0" || stateIndex.newDeaths == "+0"){
+            if (stateIndex.newCases == "+0" && stateIndex.newDeaths == "+0" && stateIndex.newRecovered == "+0"){
                 cell.country.text = stateIndex.state
                 cell.death.text = stateIndex.totalDeaths
                 cell.cases.text = stateIndex.totalCases
                 cell.recovery.text = stateIndex.totalRecovered
                 cell.newCases.text = ""
                 cell.newDeath.text = ""
+                cell.newRecovery.text = ""
             }else{
                 cell.country.text = stateIndex.state
                 cell.death.text = stateIndex.totalDeaths
                 cell.cases.text = stateIndex.totalCases
                 cell.recovery.text = stateIndex.totalRecovered
-                cell.newCases.text = stateIndex.newCases
-                cell.newDeath.text = stateIndex.newDeaths
+                cell.newCases.text = stateIndex.newCases.strZero()
+                cell.newDeath.text = stateIndex.newDeaths.strZero()
+                cell.newRecovery.text = stateIndex.newRecovered.strZero()
             }
             
             return cell
@@ -220,9 +224,9 @@ class IndiaTableViewController: UITableViewController {
             let inIndex = firstSection[indexPath.row]
             vc._country = inIndex.state
             vc._totalCases = inIndex.totalCases
-            vc._newCases = inIndex.newCases
+            vc._newCases = inIndex.newCases.strZero()
             vc._totalDeaths = inIndex.totalDeaths
-            vc._newDeaths = inIndex.newDeaths
+            vc._newDeaths = inIndex.newDeaths.strZero()
             vc._totalRecovered = inIndex.totalRecovered
             vc._activeCases = inIndex.activeCases
             vc._seriousCritical = inIndex.seriousCritical
@@ -231,9 +235,9 @@ class IndiaTableViewController: UITableViewController {
             let stateIndex = states[indexPath.row]
             vc._country = stateIndex.state
             vc._totalCases = stateIndex.totalCases
-            vc._newCases = stateIndex.newCases
+            vc._newCases = stateIndex.newCases.strZero()
             vc._totalDeaths = stateIndex.totalDeaths
-            vc._newDeaths = stateIndex.newDeaths
+            vc._newDeaths = stateIndex.newDeaths.strZero()
             vc._totalRecovered = stateIndex.totalRecovered
             vc._activeCases = stateIndex.activeCases
             vc._seriousCritical = stateIndex.seriousCritical

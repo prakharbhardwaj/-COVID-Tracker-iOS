@@ -278,7 +278,7 @@ class PetitionTableViewController: UITableViewController {
             alert.dismiss(animated: true)
         }
     }
-        
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -306,6 +306,7 @@ class PetitionTableViewController: UITableViewController {
             cellIn.recovery.text = firstSection[indexPath.row].totalRecovered
             cellIn.newCases.text = firstSection[indexPath.row].newCases
             cellIn.newDeath.text = firstSection[indexPath.row].newDeaths
+            cellIn.newRecovery.text = firstSection[indexPath.row].newRecovered
             return cellIn
         } else {
             cell.country.text = petitionIndex.country
@@ -314,6 +315,7 @@ class PetitionTableViewController: UITableViewController {
             cell.recovery.text = petitionIndex.totalRecovered
             cell.newCases.text = petitionIndex.newCases
             cell.newDeath.text = petitionIndex.newDeaths
+            cell.newRecovery.text = petitionIndex.newRecovered
             return cell
         }
         

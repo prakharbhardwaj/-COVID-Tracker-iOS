@@ -79,7 +79,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tz7-5Y-mfv">
-                                        <rect key="frame" x="258.5" y="0.0" width="121.5" height="105.5"/>
+                                        <rect key="frame" x="258.5" y="0.0" width="121.5" height="96.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recovered" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gUE-wG-Gb2">
                                                 <rect key="frame" x="0.0" y="0.0" width="121.5" height="24"/>
@@ -94,8 +94,8 @@
                                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wYW-ly-4PY">
-                                                <rect key="frame" x="0.0" y="73.5" width="121.5" height="32"/>
+                                            <label opaque="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+980" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KiZ-HW-Gkg">
+                                                <rect key="frame" x="0.0" y="73.5" width="121.5" height="23"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
                                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -147,6 +147,7 @@
                 <outlet property="death" destination="EYa-gw-o13" id="USg-in-7v6"/>
                 <outlet property="newCases" destination="886-bc-1bq" id="SZc-HM-Qh1"/>
                 <outlet property="newDeath" destination="TeS-00-AqP" id="XVb-yF-33l"/>
+                <outlet property="newRecovery" destination="KiZ-HW-Gkg" id="ydL-Fl-dN2"/>
                 <outlet property="recovery" destination="y4q-di-Sc4" id="4P0-IE-LFW"/>
             </connections>
             <point key="canvasLocation" x="-723" y="515"/>

@@ -10,5 +10,6 @@ import Foundation
 
 struct CountryData: Codable {
     let country, totalCases, newCases, totalDeaths: String
-    let newDeaths, totalRecovered, activeCases, seriousCritical: String
+    let newDeaths, totalRecovered, activeCases, newRecovered: String
+    let seriousCritical: String
 }
