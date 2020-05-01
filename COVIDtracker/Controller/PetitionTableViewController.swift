@@ -73,9 +73,6 @@ class PetitionTableViewController: UITableViewController {
         now = Int(Date().timeIntervalSince1970)
         if (now - lastUpdate >= 600){
             DispatchQueue.main.async {
-                self.lastUpdate = self.now
-                print(self.now)
-                print(self.lastUpdate)
                 self.generateSession()
             }
         }else{
@@ -84,10 +81,7 @@ class PetitionTableViewController: UITableViewController {
     }
     
     @objc func refreshNavDb(){
-        
         DispatchQueue.main.async {
-            self.now = Int(Date().timeIntervalSince1970)
-            self.lastUpdate = self.now
             self.generateSession()
         }
     }
@@ -155,6 +149,8 @@ class PetitionTableViewController: UITableViewController {
             switch res {
             case .success(let jsonResult):
                 DispatchQueue.main.async {
+                    self.now = Int(Date().timeIntervalSince1970)
+                    self.lastUpdate = self.now
                     self.getCurrTime()
                     self.tableView.isUserInteractionEnabled = false
                     self.petetions.removeAll()
@@ -209,6 +205,8 @@ class PetitionTableViewController: UITableViewController {
             switch res {
             case .success(let jsonResult):
                 DispatchQueue.main.async {
+                    self.now = Int(Date().timeIntervalSince1970)
+                    self.lastUpdate = self.now
                     self.getCurrTime()
                     self.tableView.isUserInteractionEnabled = false
                     self.petetions.removeAll()
@@ -237,8 +235,6 @@ class PetitionTableViewController: UITableViewController {
     
     func getSortDataApi(completion: @escaping (Result<Any, Error>) -> Void) {
         self.loading()
-        self.now = Int(Date().timeIntervalSince1970)
-        self.lastUpdate = self.now
         
         let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/sort?sortby=\(self.sorting)"
         let urlPath = URL(string: urlString)!

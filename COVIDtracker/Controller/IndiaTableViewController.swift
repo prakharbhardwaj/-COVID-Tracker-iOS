@@ -62,9 +62,6 @@ class IndiaTableViewController: UITableViewController {
         now = Int(Date().timeIntervalSince1970)
         if (now - lastUpdate >= 600){
             DispatchQueue.main.async {
-                self.lastUpdate = self.now
-                print(self.now)
-                print(self.lastUpdate)
                 self.generateSession()
             }
         }else{
@@ -73,10 +70,7 @@ class IndiaTableViewController: UITableViewController {
     }
     
     @objc func refreshNavDb(){
-        
         DispatchQueue.main.async {
-            self.now = Int(Date().timeIntervalSince1970)
-            self.lastUpdate = self.now
             self.generateSession()
         }
     }
@@ -86,6 +80,8 @@ class IndiaTableViewController: UITableViewController {
             switch res {
             case .success(let jsonResult):
                 DispatchQueue.main.async {
+                    self.now = Int(Date().timeIntervalSince1970)
+                    self.lastUpdate = self.now
                     self.getCurrTime()
                     self.tableView.isUserInteractionEnabled = false
                     self.states.removeAll()
