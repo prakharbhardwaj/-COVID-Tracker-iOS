@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PetitionTableViewController: UITableViewController {
+class PetitionTableViewController: VersionUpdate {
     
     var lastUpdate = Int(Date().timeIntervalSince1970)
     var now = Int(Date().timeIntervalSince1970)
@@ -36,6 +36,7 @@ class PetitionTableViewController: UITableViewController {
         navigationItem.leftBarButtonItems = [sortBtn]
         navigationItem.rightBarButtonItems = [refreshBtn]
         
+        self.generateAPISession()
         self.generateSession()
         self.registerNib()
         

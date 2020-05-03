@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -110,7 +111,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="cellBgColor"/>
                         <constraints>
                             <constraint firstItem="OBl-Ys-zCz" firstAttribute="trailing" secondItem="ix1-i2-JXO" secondAttribute="trailing" id="GW3-fo-gpk"/>
                             <constraint firstItem="ix1-i2-JXO" firstAttribute="centerX" secondItem="Fbh-hV-XOr" secondAttribute="centerX" id="Hma-Qu-u4z"/>
@@ -153,4 +154,9 @@
             <point key="canvasLocation" x="-649.27536231884062" y="343.19196428571428"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="cellBgColor">
+            <color white="0.85000003576278682" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+    </resources>
 </document>
