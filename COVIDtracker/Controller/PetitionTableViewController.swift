@@ -24,6 +24,7 @@ class PetitionTableViewController: VersionUpdate {
         case second
         case third
         case forth
+        case fifth
     }
     
     override func viewDidLoad() {
@@ -31,7 +32,7 @@ class PetitionTableViewController: VersionUpdate {
         
         let refreshBtn = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshNavDb))
         
-        let sortBtn = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down.circle"), landscapeImagePhone: UIImage(systemName: "arrow.up.arrow.down.circle"), style: .plain, target: self, action: #selector(sortButton))
+        let sortBtn = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(sortButton))
         
         navigationItem.leftBarButtonItems = [sortBtn]
         navigationItem.rightBarButtonItems = [refreshBtn]
@@ -129,17 +130,32 @@ class PetitionTableViewController: VersionUpdate {
         })
         ac.addAction(newcases)
         
+        let pastcases = UIAlertAction(title: "Yesterday's Cases", style: .default, handler: { (action) in
+            DispatchQueue.main.async {
+                self.buttonChecked = .fifth
+                self.generatePastSession()
+            }
+        })
+        ac.addAction(pastcases)
+        
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         switch buttonChecked {
         case .first:
             mostcases.setValue(true, forKey: "checked")
+            break
         case .second:
             mostdeaths.setValue(true, forKey: "checked")
+            break
         case .third:
             mostrecovrs.setValue(true, forKey: "checked")
+            break
         case .forth:
             newcases.setValue(true, forKey: "checked")
+            break
+        case .fifth:
+            pastcases.setValue(true, forKey: "checked")
+            break
         }
         
         present(ac, animated: true)
@@ -150,6 +166,7 @@ class PetitionTableViewController: VersionUpdate {
             switch res {
             case .success(let jsonResult):
                 DispatchQueue.main.async {
+                    self.buttonChecked = .first
                     self.now = Int(Date().timeIntervalSince1970)
                     self.lastUpdate = self.now
                     self.getCurrTime()
@@ -238,6 +255,62 @@ class PetitionTableViewController: VersionUpdate {
         self.loading()
         
         let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/sort?sortby=\(self.sorting)"
+        let urlPath = URL(string: urlString)!
+        let urlRequest = URLRequest(url: urlPath)
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, _, err) in
+            if let err = err {
+                completion(.failure(err))
+                return
+            }
+            
+            guard let data = data else { return }
+            do {
+                let courses = try JSONDecoder().decode(CovidData.self, from: data)
+                completion(.success(courses))
+            } catch let jsonError {
+                completion(.failure(jsonError))
+            }        }
+        task.resume()
+    }
+    
+    func generatePastSession() {
+        getPastDataApi { (res) in
+            switch res {
+            case .success(let jsonResult):
+                DispatchQueue.main.async {
+                    self.now = Int(Date().timeIntervalSince1970)
+                    self.lastUpdate = self.now
+                    self.getCurrTime()
+                    self.tableView.isUserInteractionEnabled = false
+                    self.petetions.removeAll()
+                    self.firstSection.removeAll()
+                    self.petetions = jsonResult as? CovidData ?? []
+                    let inIndex = self.petetions.firstIndex{$0.country == "India"}
+                    let totIndex = self.petetions.firstIndex{$0.country == "World"}
+                    self.firstSection.append(self.petetions[totIndex!])
+                    self.firstSection.append(self.petetions[inIndex!])
+                    print(self.firstSection)
+                    self.tableView.reloadData()
+                    self.stopLoading()
+                    self.showToast(message: "Feed updated")
+                }
+            case .failure(let err):
+                print("Failed to fetch courses", err.localizedDescription)
+                self.stopLoading()
+                DispatchQueue.main.async {
+                    let ac = UIAlertController(title: "Oops!", message: "Please check your internet connection", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    self.present(ac, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    func getPastDataApi(completion: @escaping (Result<Any, Error>) -> Void) {
+        self.loading()
+        
+        let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/pastData"
         let urlPath = URL(string: urlString)!
         let urlRequest = URLRequest(url: urlPath)
         
