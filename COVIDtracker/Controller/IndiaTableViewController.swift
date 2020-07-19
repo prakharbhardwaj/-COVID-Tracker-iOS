@@ -22,8 +22,10 @@ class IndiaTableViewController: UITableViewController {
         super.viewDidLoad()
         
         let refreshBtn = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshNavDb))
+        let newsBtn = UIBarButtonItem(image: UIImage(systemName: "bell.circle"), style: .plain, target: self, action: #selector(getLatestNews))
         
-        navigationItem.rightBarButtonItems = [refreshBtn]
+        navigationItem.leftBarButtonItem = newsBtn
+        navigationItem.rightBarButtonItem = refreshBtn
         
         self.generateSession()
         self.registerNib()
@@ -73,6 +75,12 @@ class IndiaTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.generateSession()
         }
+    }
+    
+    @objc func getLatestNews(){
+        let vc = self.storyboard?.instantiateViewController(identifier: "NewsTableViewController") as! NewsTableViewController
+//        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
     }
     
     func generateSession() {

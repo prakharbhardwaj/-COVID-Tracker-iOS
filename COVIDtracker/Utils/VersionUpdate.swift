@@ -12,7 +12,7 @@ import UIKit
 struct UpdateResult: Codable {
     let status: Bool
     let message: String
-    let url: String
+    let url: String?
 }
 
 class VersionUpdate: UITableViewController {
@@ -32,7 +32,7 @@ class VersionUpdate: UITableViewController {
                         ac.addAction(UIAlertAction(title: "Update Now", style: .default) { (_) in
                             let urlStr = data.url
                             
-                            UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+                            UIApplication.shared.open(URL(string: urlStr!)!, options: [:], completionHandler: nil)
                         })
                         self.present(ac, animated: true, completion: nil)
                     }else{
@@ -48,6 +48,7 @@ class VersionUpdate: UITableViewController {
     func getVersionApi(completion: @escaping (Result<Any, Error>) -> Void) {
         
         let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/ios/update?version=\(appVersion)"
+        print(urlString)
         let urlPath = URL(string: urlString)!
         let urlRequest = URLRequest(url: urlPath)
         
