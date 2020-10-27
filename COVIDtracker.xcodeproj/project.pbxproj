@@ -14,6 +14,7 @@
 		F53B87EB2444555D00330305 /* IndiaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53B87EA2444555D00330305 /* IndiaTableViewController.swift */; };
 		F53B87ED24445B3800330305 /* StateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53B87EC24445B3800330305 /* StateData.swift */; };
 		F54B969725481C85000097F6 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54B969625481C85000097F6 /* Globals.swift */; };
+		F54B96B525481DD6000097F6 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54B969625481C85000097F6 /* Globals.swift */; };
 		F55AB79C242FF1C2000291D8 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AB79B242FF1C2000291D8 /* Countries.swift */; };
 		F55AB79E242FF31F000291D8 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AB79D242FF31F000291D8 /* SearchTableViewController.swift */; };
 		F55AB7A02430B996000291D8 /* CountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55AB79F2430B996000291D8 /* CountryTableViewController.swift */; };
@@ -80,6 +81,8 @@
 		F53B87EA2444555D00330305 /* IndiaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaTableViewController.swift; sourceTree = "<group>"; };
 		F53B87EC24445B3800330305 /* StateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateData.swift; sourceTree = "<group>"; };
 		F54B969625481C85000097F6 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		F54B969F25481D7C000097F6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F54B96A125481D7C000097F6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F55AB79B242FF1C2000291D8 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		F55AB79D242FF31F000291D8 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		F55AB79F2430B996000291D8 /* CountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 			children = (
 				DBDCD325D99AFBBEAC8A3A22 /* Pods_COVIDtracker.framework */,
 				F5F3F608245EFA8700C9FEA4 /* NotificationCenter.framework */,
+				F54B969F25481D7C000097F6 /* WidgetKit.framework */,
+				F54B96A125481D7C000097F6 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -313,7 +318,7 @@
 			isa = PBXProject;
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Original;
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Prakhar Prakash Bhardwaj";
 				TargetAttributes = {
@@ -448,6 +453,7 @@
 				F5F3F61A245F15DF00C9FEA4 /* TodayViewCell.swift in Sources */,
 				F5F3F60C245EFA8700C9FEA4 /* TodayViewController.swift in Sources */,
 				F5F3F623245F492300C9FEA4 /* CovidResponse.swift in Sources */,
+				F54B96B525481DD6000097F6 /* Globals.swift in Sources */,
 				F5F3F620245F488B00C9FEA4 /* CovidAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,14 +619,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 83NZ63AJ89;
+				CURRENT_PROJECT_VERSION = 20201027;
+				DEVELOPMENT_TEAM = RTB9FGL6SW;
 				INFOPLIST_FILE = "$(SRCROOT)/COVIDtracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PrakharPrakashBhardwaj.COVIDtracker;
+				MARKETING_VERSION = 1.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greenerace.COVIDtracker;
 				PRODUCT_NAME = "COVID Tracker";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -634,14 +641,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 83NZ63AJ89;
+				CURRENT_PROJECT_VERSION = 20201027;
+				DEVELOPMENT_TEAM = RTB9FGL6SW;
 				INFOPLIST_FILE = "$(SRCROOT)/COVIDtracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PrakharPrakashBhardwaj.COVIDtracker;
+				MARKETING_VERSION = 1.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.greenerace.COVIDtracker;
 				PRODUCT_NAME = "COVID Tracker";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -652,7 +660,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C338829J44;
+				DEVELOPMENT_TEAM = RTB9FGL6SW;
 				INFOPLIST_FILE = "COVIDtracker Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -660,7 +668,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.PrakharPrakashBhardwaj.COVIDtracker.COVIDtracker-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.greenerace.COVIDtracker.COVIDtracker-Widget";
 				PRODUCT_NAME = COVIDtracker;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -672,7 +680,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C338829J44;
+				DEVELOPMENT_TEAM = RTB9FGL6SW;
 				INFOPLIST_FILE = "COVIDtracker Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -680,7 +688,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.PrakharPrakashBhardwaj.COVIDtracker.COVIDtracker-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.greenerace.COVIDtracker.COVIDtracker-Widget";
 				PRODUCT_NAME = COVIDtracker;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
