@@ -117,7 +117,7 @@ class IndiaTableViewController: UITableViewController {
     func getdataApi(completion: @escaping (Result<Any, Error>) -> Void) {
         self.loading()
         
-        let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/v2/statewise"
+        let urlString = "\(API_URL)/covid19/v2/statewise"
         let urlPath = URL(string: urlString)!
         let urlRequest = URLRequest(url: urlPath)
         

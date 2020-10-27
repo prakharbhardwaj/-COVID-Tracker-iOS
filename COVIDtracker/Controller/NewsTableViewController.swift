@@ -78,7 +78,7 @@ class NewsTableViewController: UITableViewController {
     func getdataApi(completion: @escaping (Result<Any, Error>) -> Void) {
         self.loading()
         
-        let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/news"
+        let urlString = "\(API_URL)/covid19/news"
         let urlPath = URL(string: urlString)!
         let urlRequest = URLRequest(url: urlPath)
         

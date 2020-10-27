@@ -99,7 +99,7 @@ class CountryTableViewController: UITableViewController {
         self.loading()
         self.countryData.removeAll()
         
-        let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/v2/search?country=\(_country)&state=\(_state)&type=\(_qryType)"
+        let urlString = "\(API_URL)/covid19/v2/search?country=\(_country)&state=\(_state)&type=\(_qryType)"
         
         guard let _urlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return

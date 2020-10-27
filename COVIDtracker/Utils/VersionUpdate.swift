@@ -47,7 +47,7 @@ class VersionUpdate: UITableViewController {
     
     func getVersionApi(completion: @escaping (Result<Any, Error>) -> Void) {
         
-        let urlString = "https://prakhar-covid19-api.herokuapp.com/covid19/ios/update?version=\(appVersion)"
+        let urlString = "\(API_URL)/covid19/ios/update?version=\(appVersion)"
         print(urlString)
         let urlPath = URL(string: urlString)!
         let urlRequest = URLRequest(url: urlPath)
